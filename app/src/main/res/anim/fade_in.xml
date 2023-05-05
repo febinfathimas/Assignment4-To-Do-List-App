@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--This file contains animation style values used to design the fading of animation button. -->
 <set xmlns:android="http://schemas.android.com/apk/res/android">
     <alpha
         android:interpolator="@android:anim/accelerate_interpolator"
         android:fromAlpha="0.0" android:toAlpha="1.0"
-        android:duration="1000" />
+        android:duration="3000" />
 
 </set>

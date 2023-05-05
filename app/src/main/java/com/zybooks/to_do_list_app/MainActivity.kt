@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationRequest
 import android.Manifest
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
@@ -60,6 +61,12 @@ class MainActivity : AppCompatActivity() {
             }
             // Start the MediaPlayer
             mediaPlayer.start()
+
+            // Load the animation
+            val animation = AnimationUtils.loadAnimation(this, R.anim.bounce_anim)
+
+            // Start the animation on the button
+            soundButton.startAnimation(animation)
         }
 
         /*The code below is to show animation-animation button*/
@@ -95,6 +102,7 @@ class MainActivity : AppCompatActivity() {
             val newItem = findViewById<EditText>(R.id.editText).text.toString()
             if (newItem.isNotEmpty()) {
                 items.add(newItem)
+                Toast.makeText(this, "ITEM ADDED", Toast.LENGTH_LONG).show()
                 adapter.notifyDataSetChanged()
                 findViewById<EditText>(R.id.editText).text.clear()
             }
@@ -129,13 +137,23 @@ class MainActivity : AppCompatActivity() {
             }
             // Clear the checked items in the ListView
             listView.clearChoices()
+            Toast.makeText(this, "CHECKED ITEM DELETED", Toast.LENGTH_LONG).show()
         }
 
 
         /*The code below is to set a click listener for the clear button*/
         clearButton.setOnClickListener {
-            val adapter = listView.adapter as ArrayAdapter<String>
-            adapter.clear()
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Clear List")
+            builder.setMessage("Are you sure you want to clear the list?")
+            builder.setPositiveButton("Yes") { _, _ ->
+                val adapter = listView.adapter as ArrayAdapter<String>
+                adapter.clear()
+            }
+            builder.setNegativeButton("No", null)
+            val dialog = builder.create()
+            dialog.show()
+
         }
 
         /*The code below is to show the map while clicking the - map button*/

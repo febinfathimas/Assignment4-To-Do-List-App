@@ -1,3 +1,4 @@
+<!--This file contains all string values used to design the app. -->
 <resources>
     <string name="app_name">To_Do_List_App</string>
     <string name="play_music">Play-Music</string>

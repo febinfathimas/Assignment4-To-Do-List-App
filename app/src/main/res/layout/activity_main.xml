@@ -96,7 +96,7 @@
                         android:layout_marginStart="60dp"/>
                 </LinearLayout>
 
-                <!-- Heading my to do list  -->
+                <!-- Heading - my to do list  -->
                 <TextView
                     android:id="@+id/textView1"
                     android:layout_width="match_parent"
@@ -118,7 +118,7 @@
                     android:layout_alignParentEnd="true"
                     />
 
-                <!-- Button to take picture -->
+                <!-- the list  -->
                 <ListView
                     android:id="@+id/listView"
                     android:layout_width="wrap_content"
@@ -126,7 +126,7 @@
                     android:layout_below="@id/textView1"
                     android:choiceMode="multipleChoice"/>
 
-    <!-- Button to take picture -->
+    <!-- Button to show map -->
     <Button
         android:id="@+id/show_map_button"
         android:layout_width="wrap_content"
